@@ -1,0 +1,94 @@
+@import 'partial/variables';
+@import 'partial/mixins';
+@import 'partial/reset';
+
+
+.my-toolTip {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background:#292727;
+    font-size: 14px;
+    // font-size: var(--step--2);
+    border-radius: .5rem;
+    padding: .5rem;
+    z-index: 1070;
+    @include transition(.3s ease);
+
+    &.top::after {
+        position: absolute;
+        content: '';
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 5px 0 5px;
+        border-color: #292727 transparent transparent transparent;
+    }
+
+    &.bottom::after {
+        position: absolute;
+        content: '';
+        top: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 5px 5px 5px;
+        border-color: transparent transparent #292727 transparent;
+    }
+
+    &.left::after {
+        position: absolute;
+        content: '';
+        right: -4px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-color: transparent transparent transparent #292727;
+    }
+
+    &.right::after {
+        position: absolute;
+        content: '';
+        left: -4px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 5px 5px 0;
+        border-color: transparent #292727 transparent transparent;
+    }
+}
+
+.copy {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: var(--step-0);
+
+    p {
+        color: $inspiredText;
+        font-weight: 300;
+
+        a {
+            color: $zaurGitHubLink;
+            text-decoration: none;
+            font-size: var(--step--1);
+            font-weight: 200;
+        }
+    }
+}
+
+
+
+
